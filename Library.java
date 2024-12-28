@@ -158,6 +158,7 @@ public class Library extends Building {
 
   /**
    * Method to check if the book is available 
+   * @param title of the book
    * @return if the book is abailable
    */
   public boolean isAvailable(String title) {
@@ -211,22 +212,22 @@ public class Library extends Building {
   }
 
   public static void main(String[] args) {
-    Library SmithLibrary = new Library("Neilson", "7 Neilson Drive, MA 01063", 5, true);
-    System.out.println(SmithLibrary);
-    SmithLibrary.showOptions();
-    SmithLibrary.addTitle("Computer Science by Dr. A");
-    SmithLibrary.addTitle("Economics by Dr. B");
-    SmithLibrary.addTitle("Psychology by Dr. C");
-    SmithLibrary.printCollection();
-    SmithLibrary.removeTitle("Psychology by Dr. C");
+    Library smithLibrary = new Library("Neilson", "7 Neilson Drive, MA 01063", 5, true);
+    System.out.println(smithLibrary);
+    smithLibrary.showOptions();
+    smithLibrary.addTitle("Computer Science by Dr. A");
+    smithLibrary.addTitle("Economics by Dr. B");
+    smithLibrary.addTitle("Psychology by Dr. C");
+    smithLibrary.printCollection();
+    smithLibrary.removeTitle("Psychology by Dr. C");
     try {
-      SmithLibrary.returnBook("Psychology by Dr. C");
+      smithLibrary.returnBook("Psychology by Dr. C");
     } catch (RuntimeException e) {
         System.out.println(e.getMessage());
     } 
-    SmithLibrary.checkOut("Economics by Dr. B");
+    smithLibrary.checkOut("Economics by Dr. B");
     try {
-      SmithLibrary.checkOut("Economics by Dr. B");
+      smithLibrary.checkOut("Economics by Dr. B");
     } catch (RuntimeException e) {
         System.out.println(e.getMessage());
     }
@@ -234,8 +235,8 @@ public class Library extends Building {
     newBooks.add("Stitch by Yumi Tsukurino");
     newBooks.add("Frozen by Daytona Danielsen");
     newBooks.add("Princess by Holly Rice");
-    SmithLibrary.addTitle(newBooks);
-    SmithLibrary.checkOut(newBooks);
+    smithLibrary.addTitle(newBooks);
+    smithLibrary.checkOut(newBooks);
   }
 
 }
